@@ -95,3 +95,9 @@ header {
   .social-links .icon:hover i {
     color: #fff;
   }
+@media (max-width: 992px) {
+  .move {
+    transform: translateY(-15%);
+    margin: auto;
+  }
+}
