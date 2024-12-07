@@ -32,28 +32,28 @@ async function getWeather(e="cairo") {
      let   cartona = `
          <div class="col-md-4 pb-5 " style="background-color: #323544;">
               <div class="row p-2" style="background-color: #2D303D;">
-                <div class="col-9">
+                <div class="col-6">
                   <span style="color: #BFBCC4;">${weatherapi.location.name}</span>
                 </div>
-                <div class="col-3">
-                  <span  style="color: #BFBCC4;">${weatherapi.date}</span>
+                <div class="col-6">
+                  <span  style="color: #BFBCC4;">${weatherapi.location.localtime}</span>
                 </div>
               </div>
-              <h2  style="color: #BFBCC4;" class="pt-4"></h2>
+              <h2  style="color: #BFBCC4;" class="pt-4">today</h2>
               <span class="text-white degree">${weatherapi.current.temp_c}℃</span>
               <div>
-                <img src="img/113.png" alt="night">
+                <img src="https:${weatherapi.current.condition.icon}" alt="night">
               </div>
               
-              <span class="clear fw-bold"></span>
+              <span class="clear fw-bold">${weatherapi.current.condition.text}</span>
               <div class="d-flex justify-content-between align-items-center pt-3 pe-5" style="color: #BFBCC4;">
                 <div>
                   <img src="img/icon-umberella.png" alt="icon-umberella">
-                <span>20%</span>
+                <span>${weatherapi.forecast.forecastday[0].day.avghumidity}%</span>
                 </div>
                 <div>
                   <img src="img/icon-wind.png" alt="icon-wind">
-                <span>18km/h</span>
+                <span>${weatherapi.forecast.forecastday[0].day.avgvis_km}km/h</span>
                 </div>
                 <div>
                   <img src="img/icon-compass.png" alt="icon-compass">
@@ -64,26 +64,26 @@ async function getWeather(e="cairo") {
             </div>
             <div class="col-md-4 pb-5 " style="background-color: #262936; text-align: center;">
               <div class="row p-2" style="background-color: #222530;">
-                  <span style="color: #BFBCC4; text-align: center;"></span>
+                  <span style="color: #BFBCC4; text-align: center;">tomorrow</span>
               </div>
               <div class="p-4">
-                <img src="img/116.png" alt="forecast">
+                <img src="https:${weatherapi.forecast.forecastday[0].day.condition.icon}" alt="forecast">
               </div>
-              <span class="text-white fw-bold fs-2">23.9℃</span>
-              <span class=" d-block" style="color: #BFBCC4;">23.9℃</span>
-              <span class="clear d-block pt-3 fw-bold">Partly Cloudy</span>
+              <span class="text-white fw-bold fs-2">${weatherapi.forecast.forecastday[0].day.avgtemp_c}℃</span>
+              <span class=" d-block" style="color: #BFBCC4;">${weatherapi.forecast.forecastday[0].day.mintemp_c}℃</span>
+              <span class="clear d-block pt-3 fw-bold">${weatherapi.forecast.forecastday[0].day.condition.text}</span>
               </div>
             <div class="col-md-4 pb-5 " style="background-color: #323544; text-align: center;">
               <div class="row p-2" style="background-color: #2D303D;">
 
-                  <span style="color: #BFBCC4; text-align: center;"></span>
+                  <span style="color: #BFBCC4; text-align: center;">overmorrow</span>
               </div>
               <div class="p-4">
-                <img src="img/113 (1).png" alt="Sunny">
+                <img src="https:${weatherapi.forecast.forecastday[0].day.condition.icon}" alt="Sunny">
               </div>
-              <span class="text-white fw-bold fs-2">23.9℃</span>
-              <span class="d-block" style="color: #BFBCC4;">14.8℃</span>
-              <span class="clear d-block pt-3 fw-bold" >Sunny</span>
+              <span class="text-white fw-bold fs-2">${weatherapi.forecast.forecastday[0].day.maxtemp_c}℃</span>
+              <span class="d-block" style="color: #BFBCC4;">${weatherapi.forecast.forecastday[0].day.mintemp_c}℃</span>
+              <span class="clear d-block pt-3 fw-bold" >${weatherapi.forecast.forecastday[0].day.condition.text}</span>
               </div>
         `
 
